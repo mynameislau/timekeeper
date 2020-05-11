@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+  <div class="toolbar-holder">
+    <div class="logo">
+      <span>TimeKeeper</span><mat-icon>schedule</mat-icon>
+    </div>
+    <div>
+      <button mat-button [matMenuTriggerFor]="langMenu">{{translate.currentLang | uppercase}}</button>
+      <mat-menu #langMenu="matMenu">
+        <button *ngFor="let lang of translate.getLangs()" (click)="menuClick(lang)" mat-menu-item>{{lang|uppercase}}</button>
+      </mat-menu>
+    </div>
+  </div>
+</mat-toolbar>

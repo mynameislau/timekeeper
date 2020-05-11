@@ -1,0 +1,64 @@
+.timer-holder {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto 1fr 35vh;
+  text-align: center;
+}
+
+.timer-top {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer-middle {
+  position: relative;
+  max-width: 750px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.timer-bottom {
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.work-time {
+
+  strong {
+    font-size: 22px;
+  }
+}
+
+.doughnut-holder {
+  width: calc(100% - var(--large-btn) * 2);
+  height: 100%;
+  margin: auto;
+  position: relative;
+}
+
+.prev-next-holder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.start-stop-holder {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

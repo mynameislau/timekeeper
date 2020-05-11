@@ -1,0 +1,66 @@
+<div class="timer-holder">
+  <div class="timer-top">
+    <mat-form-field>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        [value]="date$ | async"
+        (dateChange)="setDate($event.value)"
+        [max]="today$ | async"
+      />
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker touchUi #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div class="timer-middle">
+    <div class="doughnut-holder">
+      <doughnut
+        [intervals]="intervals$ | async"
+        [partialBg]="isCurrentDate$ | async"
+      ></doughnut>
+    </div>
+    <div class="prev-next-holder">
+      <button (click)="prevDate()" mat-icon-button class="large">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+      </button>
+      <button
+        (click)="nextDate()"
+        [disabled]="isCurrentDate$ | async"
+        mat-icon-button
+        class="large"
+      >
+        <mat-icon>keyboard_arrow_right</mat-icon>
+      </button>
+    </div>
+    <div *ngIf="isCurrentDate$ | async" class="start-stop-holder">
+      <div>
+        <button
+          mat-fab
+          color="warn"
+          aria-label="Example icon button with a delete icon"
+          *ngIf="runningTimer$ | async; else start"
+          (click)="onStopClick()"
+        >
+          <mat-icon>stop</mat-icon>
+        </button>
+        <ng-template #start>
+          <button
+            mat-fab
+            color="primary"
+            aria-label="Example icon button with a delete icon"
+            (click)="onStartClick()"
+          >
+            <mat-icon>play_arrow</mat-icon>
+          </button>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+  <div class="timer-bottom">
+    <div class="work-time">{{'total_work_time'|translate}} <br/><br/><strong>{{ totalTime$ | async }}</strong></div>
+    <timer-messages></timer-messages>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+{
+  "you_are_currently_offline": "You are currently offline",
+  "total_work_time": "Total work time",
+  "error_occured": "An error occured, you can try refetching.",
+  "retry": "Refetch",
+  "synchronizing": "Synchronizing...",
+  "local_work": "Your work has only been saved locally."
+}

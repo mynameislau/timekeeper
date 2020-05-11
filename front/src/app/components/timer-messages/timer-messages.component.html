@@ -1,0 +1,29 @@
+<div>
+  <div [ngStyle]="{ visibility: (isOffline$ | async) ? 'visible' : 'hidden' }">
+    <mat-icon aria-hidden="false" aria-label="Example home icon"
+      >power_off</mat-icon
+    >
+    {{'you_are_currently_offline'|translate}}
+  </div>
+  <ng-container *ngIf="(isOffline$ | async) ? false : true">
+    <div *ngIf="(fetchError$ | async) || (syncError$ | async)">
+      <span>{{'error_occured'|translate}}</span>
+      <br /><br />
+      <button mat-flat-button color="primary" (click)="syncRequest()">
+        {{'retry'|translate}}
+      </button>
+    </div>
+  </ng-container>
+  <div *ngIf="(inSync$ | async) ? false : true">
+    <div class="sync-holder" *ngIf="syncing$ | async; else locally">
+      <mat-progress-spinner
+        mode="indeterminate"
+        diameter="20"
+      ></mat-progress-spinner
+      >{{'synchronizing'|translate}}
+    </div>
+    <ng-template #locally>
+      {{'local_work'|translate}}
+    </ng-template>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+@import './theme.scss';
+
+html,
+body {
+  height: 100%;
+  --large-btn: 100px;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+.mat-icon-button.large {
+  width: var(--large-btn);
+  height: var(--large-btn);
+  line-height: var(--large-btn);
+
+  .mat-icon {
+    font-size: var(--large-btn);
+    width: var(--large-btn);
+    height: var(--large-btn);
+    line-height: var(--large-btn);
+  }
+}
